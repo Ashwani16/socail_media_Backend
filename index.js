@@ -6,7 +6,9 @@ require('dotenv').config()
 
 const app=express();
 app.use(express.json());
-
+app.get("/",(req,res)=>{
+    res.send("home page")
+})
 app.use("/user",userRouter);
 app.use("/posts",postRouter)
 app.listen(process.env.port,()=>{

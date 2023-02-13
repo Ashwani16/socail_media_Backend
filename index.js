@@ -3,8 +3,9 @@ const { connection } = require("./config/db");
 const { postRouter } = require("./controller/posts.Router");
 const { userRouter } = require("./controller/user.Router");
 require('dotenv').config()
-
+const cors=require("cors")
 const app=express();
+app.use(cors())
 app.use(express.json());
 app.get("/",(req,res)=>{
     res.send("home page")

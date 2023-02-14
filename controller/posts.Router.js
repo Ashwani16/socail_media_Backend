@@ -9,12 +9,11 @@ const authentication=async (req,res,next)=>{
     try {
         
         const token=req.headers.token;
-        
+        console.log(req);
     var {name} = jwt.verify(token, process.env.secretkey);
-    let user=await UserModel.findOne({nmae:name})
+    let user=await UserModel.findOne({name:name})
     
     if(user){
-     
         req.body.user_id=user._id;
         console.log("verify")
         next()
